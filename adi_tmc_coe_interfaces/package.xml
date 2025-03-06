@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>adi_tmc_coe_interfaces</name>
-  <version>0.0.0</version>
+  <version>1.0.0</version>
   <description>Custom interfaces for adi_tmc_coe</description>
   <maintainer email="ROS@analog.com">Analog Devices</maintainer>
   <license>BSD-3-Clause</license>
