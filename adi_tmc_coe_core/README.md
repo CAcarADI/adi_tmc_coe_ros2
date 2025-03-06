@@ -358,15 +358,3 @@ To proceed with the test, execute these following commands on three (3) differen
 4. Host PC specifications play a crucial role to ensure low latency when exchanging data. 4 or more cores are recommended. Threads will increase depending on the number of devices/slaves and motors.
 5. Due to having and allowing multiple threads (e.g. 1 thread for processdata cycle, 1 thread that executes SDOread/write), a ~0.01s delay was added in each SDOread/write retries to ensure proper processing.
 
-# License
-This project is licensed under the [BSD-3-Clause](LICENSE).
-
-# Notice
-Please refer to the [NOTICE](NOTICE) file for details on third-party libraries and attributions.
-
-# Support
-
-Please contact the `Maintainers` if you want to use this ROS Driver on Trinamic Motor Controllers without YAML files in this repository.
-
-Any other inquiries and support are also welcome.
-

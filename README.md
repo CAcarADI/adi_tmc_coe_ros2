@@ -20,3 +20,8 @@ This project is licensed under the [BSD-3-Clause](LICENSE).
 
 # Notice
 Please refer to the [NOTICE](NOTICE) file for details on third-party libraries and attributions.
+
+# Support
+Please contact the `Maintainers` if you want to use this ROS Driver on Trinamic Motor Controllers without YAML files in this repository.
+
+Any other inquiries and support are also welcome.
