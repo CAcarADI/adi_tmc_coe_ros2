@@ -1,0 +1,6 @@
+int32 slave_number
+string object_name
+string value
+---
+string output
+bool result

@@ -1,0 +1,40 @@
+/**
+ * Copyright (c) 2024-2025 Analog Devices, Inc. All Rights Reserved.
+ * This software is proprietary to Analog Devices, Inc. and its licensors.
+ **/
+
+#ifndef TMC_COE_BLDC_MOTOR_HPP
+#define TMC_COE_BLDC_MOTOR_HPP
+
+#include "adi_tmc_coe_core/tmc_coe_motor.hpp"
+
+/* Commutation Modes available for BLDC Motors */
+typedef enum
+{
+  BLDC_DISABLED_MOTOR = 0,
+  BLDC_OPENLOOP_MOTOR,
+  BLDC_CLOSEDLOOP_MOTOR
+} bldc_comm_mode_t;
+
+class TmcCoeBldcMotor : public TmcCoeMotor
+{
+public:
+  TmcCoeBldcMotor(rclcpp::Node::SharedPtr p_node, TmcCoeInterpreter * p_tmc_coe_interpreter,
+    uint8_t slave_number, uint8_t motor_number, std::string device_name);
+  virtual ~TmcCoeBldcMotor();
+  void init() override;
+
+private:
+  bldc_comm_mode_t commutation_mode_;
+  int position_scaler_;
+  int encoder_steps_;
+  std::string logger_prefix_;
+  rclcpp::Logger logger_;
+  void publishTmcCoeInfo() override;
+  void initSubscriber() override;
+  void cmdVelCallback(const geometry_msgs::msg::Twist::SharedPtr msg) override;
+  void cmdAbsPosCallback(const std_msgs::msg::Int32::SharedPtr msg) override;
+  void cmdRelPosCallback(const std_msgs::msg::Int32::SharedPtr msg) override;
+};
+
+#endif //TMC_COE_BLDC_MOTOR_HPP

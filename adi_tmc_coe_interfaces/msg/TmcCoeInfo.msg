@@ -1,0 +1,9 @@
+std_msgs/Header header
+string          interface_name
+uint8           slave_number
+uint8           motor_number
+string          mode_of_operation
+int32           status_word
+float32         velocity
+int32           position
+int32           torque

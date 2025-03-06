@@ -1,0 +1,5 @@
+uint8 slave_number
+string request_state
+---
+string current_state
+bool result

@@ -1,0 +1,94 @@
+##########################################################
+# Parameter Configurations for 2 single axis Devices
+##########################################################
+
+/**:
+  ros__parameters:
+    ########## Interface S[ettings
+
+    # Interface Name
+    # Description: Name of the NIC (Network Interface Card) detected by the PC.
+    # Possible values:
+    # - Name of interface, usually starts with "eth" / "enx"
+    interface_name: "eth0"
+
+    # SDO and PDO retires
+    # Description: Indicates how many times the SDO and PDO will retry in sending before logging an error if SDO or PDO fails.
+    # Possible values:
+    # - 1 - 10
+    SDO_PDO_retries: 3
+
+    # Communication timeout in seconds
+    # Description: Indicates how long should the node will wait for the slave to be responsive
+    # Possible values:
+    # - value in secs 3.0 - 5.0
+    interface_timeout: 3.0
+
+    ########## Additional Settings
+
+    # Active slave
+    # Description: Enables/disables active slave. If disabled, settings for those slave will be ignored or not set.
+    # Possible values:
+    # - 0: Not used
+    # - 1: Active
+    en_slave: [1,1]
+
+    # Adhoc Mode
+    # Description: This mode expects that the used module is not known. The velocity, position and torque relies on the additional ratios
+    # Possible values:
+    # - 0: Not used
+    # - 1: Active
+    adhoc_mode: [0,0]
+
+    # Active motors
+    # Description: Enables/disables active motors. If disabled, settings for those motors will be ignored or not set.
+    #               If multiple slaves are connected, create another array but keep in mind the name of the slave
+    # Possible values:
+    # - 0: Not used
+    # - 1: Active
+    slv1/en_motor: [1]
+    slv2/en_motor: [1]
+
+    ##########################################################
+    ##########################################################
+    # Configurations below are divided on each slaves and motor/axis. If connected with multiple slaves,
+    # copy and paste all the configuration per slave and motor, configure the needed topic names, wheel diameter values and
+    # generic ratios, and rename the slave name (should check slave number of the device, start count for slave is 1)
+    # and motor name (should follow motor naming below - motor0, motor1, ..., motorn) otherwise, the node will fail.
+
+    slv1:
+      motor0:
+        pub_rate_tmc_coe_info: 30
+        en_pub_tmc_coe_info: true
+        pub_actual_vel: true
+        pub_actual_pos: true
+        pub_actual_trq: true
+        tmc_coe_info_topic: "/tmc_info_1_0"
+        tmc_cmd_vel_topic: "/cmd_vel_1_0"
+        tmc_cmd_abspos_topic: "/cmd_abspos_1_0"
+        tmc_cmd_relpos_topic: "/cmd_relpos_1_0"
+        tmc_cmd_trq_topic: "/cmd_trq_1_0"
+
+        wheel_diameter: 0.25
+        additional_ratio_vel: 1.0
+        additional_ratio_pos: 1.0
+        additional_ratio_trq: 1.0
+
+    slv2:
+      motor0:
+        pub_rate_tmc_coe_info: 30
+        en_pub_tmc_coe_info: true
+        pub_actual_vel: true
+        pub_actual_pos: true
+        pub_actual_trq: true
+        tmc_coe_info_topic: "/tmc_info_2_0"
+        tmc_cmd_vel_topic: "/cmd_vel_2_0"
+        tmc_cmd_abspos_topic: "/cmd_abspos_2_0"
+        tmc_cmd_relpos_topic: "/cmd_relpos_2_0"
+        tmc_cmd_trq_topic: "/cmd_trq_2_0"
+
+        wheel_diameter: 0.25
+        additional_ratio_vel: 1.0
+        additional_ratio_pos: 1.0
+        additional_ratio_trq: 1.0
+

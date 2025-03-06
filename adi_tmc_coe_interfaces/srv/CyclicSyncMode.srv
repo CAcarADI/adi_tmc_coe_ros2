@@ -1,0 +1,7 @@
+uint8 slave_number
+string cs_cmd
+uint8 interpolation_time_period
+int8 interpolation_time_index
+int32[] value
+---
+bool result
